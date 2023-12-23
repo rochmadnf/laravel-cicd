@@ -21,4 +21,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.FTP_SERVER_DIR }}
       - name: Install Dependencies
-        run: php ~/composer.phar install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+        run: php -r "shell_exec('php ~/composer.phar install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist');"
