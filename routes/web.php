@@ -1,5 +1,6 @@
 <?php
 
+use Gregwar\Captcha\CaptchaBuilder;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $builder = new CaptchaBuilder();
+
+    $builder->build();
+
+    $captchaPath = $builder->inline();
+
+    return view('welcome', compact('captchaPath'));
 });
