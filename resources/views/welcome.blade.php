@@ -18,6 +18,13 @@
         <img src="{{ $captchaPath }}" style="width: 150px;" alt="captcha code">
         <input placeholder="write code here..." />
     </div>
+
+    <div>
+        <div>
+            {!! QrCode::format('svg')->merge(public_path('logoku.jpg'), 0.3, true)->generate('My Name is Rochmad') !!}
+            <p>Scan me to return to the original page.</p>
+        </div>
+    </div>
 </body>
 
 </html>
