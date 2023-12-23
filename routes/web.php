@@ -2,6 +2,7 @@
 
 use Gregwar\Captcha\CaptchaBuilder;
 use Illuminate\Support\Facades\Route;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,5 +22,7 @@ Route::get('/', function () {
 
     $captchaPath = $builder->inline();
 
-    return view('welcome', compact('captchaPath'));
+    $imageBase = base64_encode(QrCode::format('png')->merge(public_path('logoku.jpg'), 0.3, true)->size(150)->errorCorrection('H')->generate('from Rochmad'));
+
+    return view('welcome', compact('captchaPath', 'imageBase'));
 });

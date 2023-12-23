@@ -24,6 +24,20 @@
             {!! QrCode::format('svg')->merge(public_path('logoku.jpg'), 0.3, true)->generate('My Name is Rochmad') !!}
             <p>Scan me to return to the original page.</p>
         </div>
+        <div>
+            {!! QrCode::wiFi([
+                'ssid' => 'no name',
+                'encryption' => 'WPA',
+                'password' => 'dinaani1213',
+            ]) !!}
+        </div>
+
+        <div>
+            {!! QrCode::phoneNumber('+62 853-9948-3368') !!}
+        </div>
+        <div style="margin-top: 8rem;">
+            <img src="data:image/png;base64,{{ $imageBase }}" alt="qrcode">
+        </div>
     </div>
 </body>
 
